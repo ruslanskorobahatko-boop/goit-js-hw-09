@@ -17,11 +17,19 @@
 @import url('./back-link.css');
 @import url('./footer.css');
 
+.gallery-page {
+  background: #f5f5f5;
+}
+
+.gallery-page .container {
+  max-width: 1128px;
+  padding: 32px 24px;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  padding: 24px 0;
   margin: 0;
   list-style: none;
 }
@@ -37,44 +45,111 @@
   object-fit: cover;
 }
 
+.form-page {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 34px;
+  background: #f5f5f5;
+}
+
+.form-page .container {
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+}
+
 .feedback-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 408px;
-  padding: 24px 0;
+  width: 360px;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
 }
 
 .feedback-form label {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: #2e2f42;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .feedback-form input,
 .feedback-form textarea {
   box-sizing: border-box;
   width: 100%;
-  padding: 8px;
+  padding: 8px 12px;
   font: inherit;
+  color: #2e2f42;
+  background: #fff;
   border: 1px solid #808080;
   border-radius: 4px;
+  outline: none;
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.feedback-form input {
+  height: 40px;
+}
+
+.feedback-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.feedback-form input:hover,
+.feedback-form textarea:hover {
+  border-color: #4e75ff;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #4e75ff;
+  box-shadow: 0 0 0 2px rgb(78 117 255 / 25%);
 }
 
 .feedback-form button {
   align-self: flex-start;
+  min-width: 95px;
+  min-height: 40px;
   padding: 8px 16px;
   font: inherit;
+  color: #fff;
+  background: #4e75ff;
+  border: 0;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.feedback-form button:hover,
+.feedback-form button:focus {
+  background: #6c8cff;
 }
 
 @media screen and (max-width: 768px) {
+  .gallery-page .container {
+    padding: 24px 16px;
+  }
+
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 480px) {
+  .feedback-form {
+    width: calc(100vw - 40px);
+  }
+
   .gallery {
     grid-template-columns: 1fr;
   }
